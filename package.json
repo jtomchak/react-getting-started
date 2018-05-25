@@ -2,9 +2,9 @@
   "name": "react-getting-started",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "start": "node ./scripts/build.js && webpack-dev-server",
+    "start": "node ./scripts/build.js &&  webpack-dev-server",
     "build": "node ./scripts/build.js && webpack"
   },
   "keywords": [],

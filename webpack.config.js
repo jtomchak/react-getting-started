@@ -15,7 +15,8 @@ module.exports = {
     (chunks, dir) => {
       const baseDir = path.basename(dir);
 
-      ["lessons"].forEach(name => {
+      //Check for possible JS files in each lesson directory
+      ["exercise"].forEach(name => {
         const file = path.join(dir, `${name}.js`);
 
         if (fs.existsSync(file)) {
@@ -30,7 +31,7 @@ module.exports = {
     }
   ),
   output: {
-    path: path.join(__dirname, "public"),
+    path: path.join(__dirname, "public/"),
     filename: "[name].js",
     chunkFilename: "[id].chunk.js",
     publicPath: "/"
@@ -56,12 +57,30 @@ module.exports = {
     ]
   },
   plugins: [new webpack.optimize.CommonsChunkPlugin({ name: "shared" })],
-  devtool: "inline-source-map",
+  devtool: "source-map",
   devServer: {
+    inline: true,
+    contentBase: 'public',
+    open: 'chrome',
     quiet: false,
     noInfo: false,
     historyApiFallback: {
       rewrites: []
     }
+  },
+  stats: {
+    assets: false,
+    assetsSort: 'field',
+    colors: true,
+    version: true,
+    hash: true,
+    timings: true,
+    chunks: false,
+    chunkModules: false,
+      // Display the distance from the entry point for each module
+  depth: false,
+
+  // Display the entry points with the corresponding bundles
+  entrypoints: false,
   }
 };

@@ -17,7 +17,7 @@ function renderPage(element) {
 
 const e = React.createElement;
 
-function HostPage({ chunk, data, title = "React Training" }) {
+function HostPage({ chunk, data, title = "Getting Started React" }) {
   return e(
     "html",
     null,
@@ -30,8 +30,6 @@ function HostPage({ chunk, data, title = "React Training" }) {
         content: "width=device-width, initial-scale=1"
       }),
       e("title", null, title),
-      e("link", { rel: "icon", href: "/favicon.ico?react-workshop" }),
-      e("link", { rel: "stylesheet", href: "./shared.css" }),
       data &&
         e("script", {
           dangerouslySetInnerHTML: {
