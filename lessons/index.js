@@ -1,7 +1,19 @@
-import "./styles.css";
-
 import React from "react";
 import ReactDOM from "react-dom";
+
+// Bootstrap dependencies
+window.$ = window.jQuery = require('jquery') // required for bootstrap
+window.Popper = require('popper.js') // required for tooltip, popup...
+require('bootstrap')
+
+import './index.scss' // include bootstrap css file with own modifications
+
+// tooltip and popover require javascript side modification to enable them (new in Bootstrap 4)
+// use tooltip and popover components everywhere
+$(function (){
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+})
 
 
 const Index = () => {
@@ -11,6 +23,10 @@ const Index = () => {
     <div className="index">
       <header className="index-header">
       </header>
+      <div className="container">
+    <button type="button" className="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" 
+    data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+  </div>
       <table
         className="index-lessonsTable"
         cellSpacing={0}

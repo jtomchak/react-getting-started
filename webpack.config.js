@@ -1,6 +1,11 @@
 const fs = require("fs");
-const path = require("path");
 const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require("path");
+
+const extractSass = new ExtractTextPlugin({
+  filename: path.join(__dirname, "lessons", "index.scss")
+});
 
 const lessonsDir = path.join(__dirname, "lessons");
 const lessonDirs = fs
@@ -54,14 +59,29 @@ module.exports = {
         test: /\.woff(2)?$/,
         loader: "url?limit=10000&mimetype=application/font-woff"
       },
-    ]
-  },
-  plugins: [new webpack.optimize.CommonsChunkPlugin({ name: "shared" })],
+      {
+        test: /\.(scss)$/,
+        use: [
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          "sass-loader" // compiles Sass to CSS
+      ]
+    }
+    ]},
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({ name: "shared" }),
+    new webpack.ProvidePlugin({
+      $: "jquery", // Used for Bootstrap JavaScript components
+      jQuery: "jquery", // Used for Bootstrap JavaScript components
+      Popper: ["popper.js", "default"] // Used for Bootstrap dropdown, popup and tooltip JavaScript components
+    }),
+    extractSass
+  ],
   devtool: "source-map",
   devServer: {
     inline: true,
-    contentBase: 'public',
-    open: 'chrome',
+    contentBase: "public",
+    open: "chrome",
     quiet: false,
     noInfo: false,
     historyApiFallback: {
@@ -70,17 +90,17 @@ module.exports = {
   },
   stats: {
     assets: false,
-    assetsSort: 'field',
+    assetsSort: "field",
     colors: true,
     version: true,
     hash: true,
     timings: true,
     chunks: false,
     chunkModules: false,
-      // Display the distance from the entry point for each module
-  depth: false,
+    // Display the distance from the entry point for each module
+    depth: false,
 
-  // Display the entry points with the corresponding bundles
-  entrypoints: false,
+    // Display the entry points with the corresponding bundles
+    entrypoints: false
   }
 };

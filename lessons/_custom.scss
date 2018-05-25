@@ -1,0 +1,12 @@
+$body-bg:  #999;
+$body-color: $gray-600;
+
+
+
+body {
+    background-color: #999;
+}
+
+.container {
+    background-color: $body-bg;
+}
