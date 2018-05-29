@@ -22,11 +22,9 @@ const Index = () => {
   return (
     <div className="index">
       <header className="index-header">
+      React Getting Started
       </header>
       <div className="container">
-    <button type="button" className="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" 
-    data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-  </div>
       <table
         className="index-lessonsTable"
         cellSpacing={0}
@@ -72,6 +70,7 @@ const Index = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

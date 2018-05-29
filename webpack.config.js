@@ -21,7 +21,7 @@ module.exports = {
       const baseDir = path.basename(dir);
 
       //Check for possible JS files in each lesson directory
-      ["exercise"].forEach(name => {
+      ["exercise", "solution"].forEach(name => {
         const file = path.join(dir, `${name}.js`);
 
         if (fs.existsSync(file)) {
