@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Happening</title>
+</head>
+<body>
+    <!-- We need to have a dom element to put our react code in as a child node -->
+    <div id="root"></div> 
+
+    <!-- import our react and dom libraries from node_modeules, other option is CDN like unpkg -->
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+
+    <!-- Now for some actual React with JS, note I didn't say JSX! -->
+    <script>
+        ReactDOM.render(React.createElement('div', null, 
+            React.createElement('h1', null, "Here comes the Boom")), 
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
