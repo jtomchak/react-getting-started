@@ -1,38 +1,37 @@
+///////////////////////////////////////////////////////
+/*
+
+Exercise:
+- Render a Nav Tab for each of the truck's from the Array, with it's name in the tab
+- Should be able to click on each Nav tab and have it set to 'active' while the others are 'inactive'
+- Render the right description below the tabs to match the selected truck in the Tabs
+
+
+*/
+////////////////////////////////////////////////////////
+
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "../utils/bootstrap-add"; //add bootstrap as a dependency
 
 class Tabs extends Component {
-  state = {
-    activeTabIndex: 0
-  };
-
-  handleTabClick = index => {
-      this.setState({
-          activeTabIndex: index
-      })
-  }
 
   render() {
-    const truckTabs = this.props.data.map((truck, index) => {
-      const truckStyle =
-        this.state.activeTabIndex === index ? "nav-link active" : "nav-link";
-      return (
-        <li className="nav-item"
-          key={truck.id}
-          onClick={() => this.handleTabClick(index)}
-        >
-         <a className={truckStyle} href="#">{truck.name}</a>
-        </li>
-      );
-    });
     return (
-      <div className="Tabs">
+      <div>
       <ul className="nav nav-tabs justify-content-center">
-        {truckTabs}
+      <li className="nav-item">
+         <a className="nav-link active" href="#">Active</a>
+        </li>
+        <li className="nav-item">
+         <a className="nav-link" href="#">Not Active</a>
+        </li>
+        <li className="nav-item">
+         <a className="nav-link" href="#">Not Active</a>
+        </li>
         </ul>
         <div className="my-4 px-5 lead" >
-          {this.props.data[this.state.activeTabIndex].description}
+          Truck Description
         </div>
       </div>
     );
@@ -43,7 +42,7 @@ const App = props => {
   return (
       <div>
     <div className="jumbotron">
-        <h1 className="display-4">Monster Trucks!!! {'\u2728'}</h1>
+        <h1 className="display-4">Moster Trucks!!! {'\u2728'}</h1>
     </div>
       <Tabs data={props.trucks} />
       </div>
