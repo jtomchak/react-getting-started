@@ -34,7 +34,7 @@ $body-color: $gray-600;
     color: blue;
   }
   .index-subjectsTable tr:nth-child(even) {
-    background: #eef;
+    background: $body-color;
   }
   .index-subjectsTable td {
     padding: 10px;

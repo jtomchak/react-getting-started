@@ -8,7 +8,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-
 function MyFirstComponent() {
   return <div>What Movies did you pick?</div>;
 }

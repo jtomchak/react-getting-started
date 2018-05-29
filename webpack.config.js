@@ -31,7 +31,7 @@ module.exports = {
       return chunks;
     },
     {
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "bootstrap", "jquery", "popper.js"],
       index: path.join(lessonsDir, "index.js")
     }
   ),

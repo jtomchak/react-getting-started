@@ -58,25 +58,29 @@ const lessons = [];
 lessonDirs.forEach(dir => {
   const base = path.basename(dir);
   const match = base.match(/^(\d+)-(.+)$/);
+  //check that lesson folder is valid format 'XX-Title-Here'
+  //utils is excluded
+  if(match){
   const lesson = {
     number: match[1],
     name: match[2].replace(/-/g, " ")
   };
-
+  
   ["lecture", "exercise", "solution"].forEach(name => {
     if (fs.existsSync(path.join(dir, `${name}.js`))) {
       console.log(`Building /${base}/${name}.html...`);
-
+      
       writeFile(
         path.join(publicDir, base, `${name}.html`),
         renderPage(e(HostPage, { chunk: `${base}-${name}` }))
       );
-
+      
       lesson[name] = `/${base}/${name}.html`;
     }
   });
-
+  
   lessons.push(lesson);
+}
 });
 
 console.log(`Building /index.html...`);

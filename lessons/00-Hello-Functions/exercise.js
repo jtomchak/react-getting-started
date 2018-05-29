@@ -15,12 +15,9 @@ with that particular movie title styled with the unique color.
 - See it update auto-magiclly in the browser, thanks to some sweet build pipelines.
 */
 ////////////////////////////////////////////////////////
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const MyFirstComponent =  React.createElement('div', null, 'Starting React');
+const MyFirstComponent = React.createElement("div", null, "Starting React");
 
-ReactDOM.render(
- MyFirstComponent,
-  document.getElementById("app")
-);
+ReactDOM.render(MyFirstComponent, document.getElementById("app"));
