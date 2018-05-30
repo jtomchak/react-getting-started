@@ -8,30 +8,31 @@ class Tabs extends Component {
   };
 
   handleTabClick = index => {
-      this.setState({
-          activeTabIndex: index
-      })
-  }
+    this.setState({
+      activeTabIndex: index
+    });
+  };
 
   render() {
     const truckTabs = this.props.data.map((truck, index) => {
       const truckStyle =
         this.state.activeTabIndex === index ? "nav-link active" : "nav-link";
       return (
-        <li className="nav-item"
+        <li
+          className="nav-item"
           key={truck.id}
           onClick={() => this.handleTabClick(index)}
         >
-         <a className={truckStyle} href="#">{truck.name}</a>
+          <a className={truckStyle} href="#">
+            {truck.name}
+          </a>
         </li>
       );
     });
     return (
       <div className="Tabs">
-      <ul className="nav nav-tabs justify-content-center">
-        {truckTabs}
-        </ul>
-        <div className="my-4 px-5 lead" >
+        <ul className="nav nav-tabs justify-content-center">{truckTabs}</ul>
+        <div className="my-4 px-5 lead">
           {this.props.data[this.state.activeTabIndex].description}
         </div>
       </div>
@@ -41,12 +42,12 @@ class Tabs extends Component {
 
 const App = props => {
   return (
-      <div>
-    <div className="jumbotron">
-        <h1 className="display-4">Monster Trucks!!! {'\u2728'}</h1>
-    </div>
-      <Tabs data={props.trucks} />
+    <div>
+      <div className="jumbotron">
+        <h1 className="display-4">Monster Trucks!!! {"\u2728"}</h1>
       </div>
+      <Tabs data={props.trucks} />
+    </div>
   );
 };
 

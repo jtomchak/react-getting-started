@@ -15,24 +15,27 @@ import ReactDOM from "react-dom";
 import "../utils/bootstrap-add"; //add bootstrap as a dependency
 
 class Tabs extends Component {
-
   render() {
     return (
       <div>
-      <ul className="nav nav-tabs justify-content-center">
-      <li className="nav-item">
-         <a className="nav-link active" href="#">Active</a>
-        </li>
-        <li className="nav-item">
-         <a className="nav-link" href="#">Not Active</a>
-        </li>
-        <li className="nav-item">
-         <a className="nav-link" href="#">Not Active</a>
-        </li>
+        <ul className="nav nav-tabs justify-content-center">
+          <li className="nav-item">
+            <a className="nav-link active" href="#">
+              Active
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              Not Active
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              Not Active
+            </a>
+          </li>
         </ul>
-        <div className="my-4 px-5 lead" >
-          Truck Description
-        </div>
+        <div className="my-4 px-5 lead">Truck Description</div>
       </div>
     );
   }
@@ -40,12 +43,12 @@ class Tabs extends Component {
 
 const App = props => {
   return (
-      <div>
-    <div className="jumbotron">
-        <h1 className="display-4">Moster Trucks!!! {'\u2728'}</h1>
-    </div>
-      <Tabs data={props.trucks} />
+    <div>
+      <div className="jumbotron">
+        <h1 className="display-4">Moster Trucks!!! {"\u2728"}</h1>
       </div>
+      <Tabs data={props.trucks} />
+    </div>
   );
 };
 
