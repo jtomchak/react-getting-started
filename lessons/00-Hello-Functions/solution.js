@@ -22,7 +22,7 @@ export const MyFirstComponent = function() {
     null,
     ce(Title, {
       color: "rebeccapurple",
-      title: "Hans Solo, A movie about stuff"
+      title: "Han Solo, A movie about stuff"
     }),
     ce(Title, { color: "peru", title: "Return of the Jedi" }),
     ce(Title, { color: "burlywood", title: "A New Hope" })
