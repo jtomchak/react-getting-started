@@ -8,7 +8,8 @@
     "prestart": "node ./scripts/build.js",
     "start": "webpack-dev-server",
     "build": "node ./scripts/build.js && webpack",
-    "test": "mocha --require babel-core/register tests/setup.js lessons/**/*.spec.js"
+    "test": "mocha --color --require babel-core/register tests/setup.js tests/**/*.test.js",
+    "t-watch": "mocha --watch --color --require babel-core/register tests/setup.js tests/**/*.test.js"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +39,7 @@
     "prop-types": "^15.6.1",
     "react-addons-test-utils": "^15.6.2",
     "sass-loader": "^6.0.7",
+    "script-loader": "^0.7.0",
     "style-loader": "^0.20.3",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"

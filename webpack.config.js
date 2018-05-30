@@ -21,7 +21,7 @@ module.exports = {
       const baseDir = path.basename(dir);
 
       //Check for possible JS files in each lesson directory
-      ["exercise", "solution"].forEach(name => {
+      ["test", "exercise", "solution"].forEach(name => {
         const file = path.join(dir, `${name}.js`);
 
         if (fs.existsSync(file)) {
@@ -66,7 +66,12 @@ module.exports = {
           "css-loader", // translates CSS into CommonJS
           "sass-loader" // compiles Sass to CSS
       ]
-    }
+    },
+      {
+        //load like a global script tag
+        test: require.resolve('chai/chai.js'),
+        use: 'script-loader'
+      }
     ]},
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: "shared" }),
@@ -87,6 +92,9 @@ module.exports = {
     historyApiFallback: {
       rewrites: []
     }
+  },
+  node: {
+    fs: 'empty'
   },
   stats: {
     assets: false,

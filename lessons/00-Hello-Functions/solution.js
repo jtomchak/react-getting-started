@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Proptypes from "prop-types";
+import Proptypes from 'prop-types';
 
 var ce = React.createElement;
 
 export const Title = function(props) {
   const style = { color: props.color };
-  return ce("div", null, ce("h1", { style: style }, props.title));
+  return ce("h1", { style: style }, props.title);
 };
 
 //Contract with PropTypes
@@ -14,7 +14,7 @@ export const Title = function(props) {
 Title.proptypes = {
   color: Proptypes.string.isRequired,
   title: Proptypes.string.isRequired
-};
+}
 
 export const MyFirstComponent = function() {
   return ce(
