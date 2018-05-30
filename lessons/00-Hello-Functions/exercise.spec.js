@@ -25,6 +25,6 @@ describe("Title Component", () => {
   //Component Tests Here
   it("will always renders a div", () => {
     const divs = title().find("div");
-    expect(divs.length).toBeGreaterThan(0);
+    expect(divs.length).to.be.gt(0);
   });
 });
