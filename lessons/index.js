@@ -37,6 +37,13 @@ const Index = () => {
                     </a>
                   )}
                 </td>
+                <td className="index-test">
+                  {lesson.test && (
+                    <a href={lesson.test} title={`${lesson.name} test`}>
+                      test
+                    </a>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
