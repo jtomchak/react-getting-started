@@ -4,6 +4,7 @@ const mkdirp = require("mkdirp");
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 
+
 function writeFile(file, contents) {
   mkdirp.sync(path.dirname(file));
   fs.writeFileSync(file, contents);
@@ -46,7 +47,9 @@ function HostPage({ chunk, test, data, title = "Getting Started React" }) {
       e("script", { src: "/shared.js" }),
       e("script", { src: `/${chunk}.js` }),
       test && 
-      e("script", { src: `/${test}.js`})
+      e("script", { src: `/${test}.js`}),
+      test && 
+      e("script", {src: `/button-add.js`})
     )
   );
 }
@@ -58,6 +61,7 @@ const lessonDirs = fs
   .map(file => path.join(lessonsDir, file))
   .filter(file => fs.statSync(file).isDirectory());
 
+copyFile(path.join(__dirname, 'button-add.js'), path.join(publicDir, 'button-add.js'))
 const lessons = [];
 lessonDirs.forEach(dir => {
   const base = path.basename(dir);
@@ -94,3 +98,18 @@ writeFile(
   path.join(publicDir, "index.html"),
   renderPage(e(HostPage, { chunk: "index", data: { lessons } }))
 );
+
+function copyFile(src, dest) {
+
+  let readStream = fs.createReadStream(src);
+
+  readStream.once('error', (err) => {
+    console.log(err);
+  });
+
+  readStream.once('end', () => {
+    console.log('done copying');
+  });
+
+  readStream.pipe(fs.createWriteStream(dest));
+}

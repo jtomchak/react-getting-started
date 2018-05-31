@@ -29,7 +29,7 @@ describe('Title Component', () => {
         appNode = app();
         let htmlChildElements = appNode.firstElementChild.children;
         let h1Styles = [...htmlChildElements].filter(e => e.style.color)
-        expect(h1Styles.length, "Seems to be missing some color styhle").to.equal(3);
+        expect(h1Styles.length, "Seems to be missing some color styhe").to.equal(3);
     })
 
     it("each H1 element should have a title", () => {
